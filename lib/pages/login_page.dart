@@ -108,7 +108,6 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         onPressed: () {
                           _loginGoogle();
-                          //ref.child(name).set("renxito 1");
                         }))
               ],
             ),

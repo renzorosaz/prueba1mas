@@ -40,10 +40,6 @@ class _SplashScreenState extends State<SplashScreen> {
     nombreUsuario = recunombreUsuario;
     foto = recufoto;
     email = recuemail;
-
-    print(nombreUsuario);
-    print(foto);
-    print(email);
   }
 
   _loadWidget() async {
@@ -102,17 +98,7 @@ class _SplashScreenState extends State<SplashScreen> {
             )
           ],
         ),
-      ])
-          // child: Container(
-          //   width: 200,
-          //   height: 250,
-          //   child: Column(
-          //     children: <Widget>[
-          //       //_loadingText(),
-          //     ],
-          //   ),
-          // ),
-          ),
+      ])),
     );
   }
 }

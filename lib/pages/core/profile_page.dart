@@ -25,6 +25,7 @@ class _ProfilePageState extends State<ProfilePage> {
     super.initState();
   }
 
+  //definir método
   void _cerrarSesion() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.remove('email');
@@ -55,7 +56,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     bottomRight: Radius.circular(15.0),
                     bottomLeft: Radius.circular(15.0)),
                 image: DecorationImage(
-                    //image: AssetImage(urlImagenUsuario),
                     image: NetworkImage(widget.foto.toString()),
                     fit: BoxFit.fill),
               ),
@@ -72,30 +72,12 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               child: TextFormField(
                   initialValue: widget.nombreUsuario,
-                  //limitar caracteres
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: "Nombre",
                   )),
             ),
             SizedBox(height: 20),
-            // Container(
-            //   width: 261,
-            //   height: 38,
-            //   padding: EdgeInsets.only(left: 5, right: 5),
-            //   alignment: Alignment.center,
-            //   decoration: BoxDecoration(
-            //     color: Colors.brown[200],
-            //     borderRadius: BorderRadius.circular(10),
-            //   ),
-            //   child: TextFormField(
-            //       //initialValue: widget.nombreUsuario,
-            //       //limitar caracteres
-            //       decoration: InputDecoration(
-            //     border: InputBorder.none,
-            //     hintText: "Apellido",
-            //   )),
-            // ),
             SizedBox(height: 20),
             Container(
               width: 261,
@@ -108,26 +90,19 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               child: TextFormField(
                   initialValue: widget.email,
-                  //limitar caracteres
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: "Email",
                   )),
             ),
             SizedBox(height: 30),
-            ElevatedButton(
-                child: Text("Actualizar"),
-                onPressed: () {
-                  // editar campos
-                  //implementar metodo que registre en firebase databases LOS REGISTRO Y ACTUALIZACIONES
-                }),
+            //TODO: Buscar solución : NO REGISTRA AL FIREBASE , nullsafety bloqueante.
+            ElevatedButton(child: Text("Actualizar"), onPressed: () {}),
             SizedBox(height: 50),
             ElevatedButton(
                 child: Text("Cerrar Sesión"),
                 onPressed: () {
                   _cerrarSesion();
-                  // editar campos
-                  //implementar metodo que registre en firebase databases LOS REGISTRO Y ACTUALIZACIONES
                 })
           ],
         ),

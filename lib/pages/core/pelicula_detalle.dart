@@ -49,16 +49,16 @@ class _PeliculaDetalleState extends State<PeliculaDetalle> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(pelicula.title,
-                    style: Theme.of(context).textTheme.title,
+                    style: Theme.of(context).textTheme.headline6,
                     overflow: TextOverflow.ellipsis),
                 Text(pelicula.originalTitle,
-                    style: Theme.of(context).textTheme.subhead,
+                    style: Theme.of(context).textTheme.headline6,
                     overflow: TextOverflow.ellipsis),
                 Row(
                   children: <Widget>[
                     Icon(Icons.star_border),
                     Text(pelicula.voteAverage.toString(),
-                        style: Theme.of(context).textTheme.subhead)
+                        style: Theme.of(context).textTheme.headline6)
                   ],
                 )
               ],
@@ -117,21 +117,6 @@ Widget _crearLikesButons() {
             dotPrimaryColor: Color(0xff33b5e5),
             dotSecondaryColor: Color(0xff0099cc),
           ),
-          countBuilder: (count, isLiked, text) {
-            var color = isLiked ? Colors.brown : Colors.grey;
-            Widget result;
-            if (count == 0) {
-              result = Text(
-                "love",
-                style: TextStyle(color: color),
-              );
-            } else
-              result = Text(
-                text,
-                style: TextStyle(color: color),
-              );
-            return result;
-          },
           likeBuilder: (bool isLiked2) {
             return Icon(
               Icons.headphones_rounded,
@@ -156,17 +141,6 @@ Widget _crearLikesButons() {
               color: isLiked3 ? Colors.brown : Colors.grey,
               size: 20,
             );
-          },
-          countBuilder: (count, isLiked3, text) {
-            var color = isLiked3 ? Colors.brown : Colors.grey;
-            Widget result;
-            print(count);
-            if (count == 0) {
-              result = Text(
-                "love",
-                style: TextStyle(color: color),
-              );
-            }
           },
           likeCount: 665,
         ),

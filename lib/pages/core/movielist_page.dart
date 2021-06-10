@@ -46,7 +46,6 @@ class _MovieListPageState extends State<MovieListPage> {
       future: peliculasProvider.getPeliculas(),
       builder: (BuildContext context, AsyncSnapshot<List<Pelicula>> snapshot) {
         if (snapshot.hasData) {
-          //return Text("");
           return CardPeliculas(peliculas: snapshot.data);
         } else {
           return Container(
@@ -63,7 +62,6 @@ class _MovieListPageState extends State<MovieListPage> {
           (BuildContext context, AsyncSnapshot<List<PopularModel>> snapshot) {
         if (snapshot.hasData) {
           return CardPopulares(populares: snapshot.data);
-          // return CardSwiper(peliculas: snapshot.data);
         } else {
           return Container(
               height: 400.0, child: Center(child: CircularProgressIndicator()));
