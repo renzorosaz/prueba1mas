@@ -4,10 +4,10 @@ import 'package:pruebamas1/models/movie_model.dart';
 import 'package:pruebamas1/pages/core/pelicula_detalle.dart';
 import 'package:pruebamas1/src/components/mediaquerys.dart';
 
-class CardSwiper extends StatelessWidget {
+class CardPeliculas extends StatelessWidget {
   late List<Pelicula>? peliculas;
 
-  CardSwiper({@required this.peliculas});
+  CardPeliculas({@required this.peliculas});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class CardSwiper extends StatelessWidget {
                             PeliculaDetalle(peliculaModel: peliculas![index])));
               },
               child: Card(
-                color: Colors.brown,
+                color: Colors.brown.withOpacity(0.3),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

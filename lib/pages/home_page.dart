@@ -65,10 +65,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _createBottomNavigationBar() {
     return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(15.0), topRight: Radius.circular(15.0)),
-          color: Colors.brown[400]),
+      decoration: BoxDecoration(color: Colors.black38),
       child: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _onItemTapped,
