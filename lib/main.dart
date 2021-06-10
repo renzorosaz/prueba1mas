@@ -21,27 +21,6 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light, primaryColor: Colors.brown[400]),
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
-      // initialRoute: SplashScreen,
-      // routes: {
-      //   '/': (BuildContext context) => SplashScreen(),
-      //   // 'detalle': (BuildContext context) => PeliculaDetalle(),
-      // },
     );
-    // return FutureBuilder(
-    //   future: Firebase.initializeApp(),
-    //   builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-    //     if (snapshot.hasError) {
-    //       return Container(child: Text("Error de firebase"));
-    //     }
-
-    //     // Once complete, show your application
-    //     if (snapshot.connectionState == ConnectionState.done) {
-    //       return SplashScreen();
-    //     }
-
-    //     // Otherwise, show something whilst waiting for initialization to complete
-    //     return CircularProgressIndicator();
-    //   },
-    // );
   }
 }
