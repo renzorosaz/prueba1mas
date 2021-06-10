@@ -15,13 +15,19 @@ class _MovieListPageState extends State<MovieListPage> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-          padding: EdgeInsets.only(top: 50), child: _swiperTarjetas()),
+        padding: EdgeInsets.only(top: 50),
+        child: Column(
+          children: <Widget>[
+            _swiperTarjetas(),
+          ],
+        ),
+      ),
     );
   }
 
   Widget _swiperTarjetas() {
     return FutureBuilder(
-      future: peliculasProvider.getEnCines(),
+      future: peliculasProvider.getPeliculas(),
       builder: (BuildContext context, AsyncSnapshot<List<Pelicula>> snapshot) {
         if (snapshot.hasData) {
           //return Text("s");

@@ -19,6 +19,10 @@ class _LoginPageState extends State<LoginPage> {
   String? fotoUrl;
   bool _isLoggedIn = true;
 
+  final fb = FirebaseDatabase.instance;
+
+  final name = "Name";
+
   GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
 
   //MÉTODOS
@@ -29,9 +33,11 @@ class _LoginPageState extends State<LoginPage> {
       if (_googleSignIn.currentUser != null) {
         _isLoggedIn = false;
         SharedPreferences prefs = await SharedPreferences.getInstance();
+
         prefs.setString('email', "${_googleSignIn.currentUser?.email}");
         prefs.setString('nombre', "${_googleSignIn.currentUser?.displayName}");
         prefs.setString('foto', "${_googleSignIn.currentUser?.photoUrl}");
+
         await Navigator.pushReplacement(
             context,
             MaterialPageRoute(
@@ -51,6 +57,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final ref = fb.reference();
+
     return Scaffold(
       body: Stack(
         children: [
@@ -80,30 +88,28 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(color: Colors.white, fontSize: 24))),
                 SizedBox(height: 20),
                 Container(
-                  width: 261,
-                  height: 38,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: _isLoggedIn
-                      ? OutlinedButton(
-                          child: Row(
-                            children: [
-                              Image.asset("assets/icongo.png"),
-                              SizedBox(
-                                width: 25,
-                              ),
-                              Text("Ingresar con Google",
-                                  style: TextStyle(
-                                      color: Colors.blue[400],
-                                      fontWeight: FontWeight.w500)),
-                            ],
-                          ),
-                          onPressed: () {
-                            _loginGoogle();
-                          })
-                      : CircularProgressIndicator(),
-                )
+                    width: 261,
+                    height: 38,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: OutlinedButton(
+                        child: Row(
+                          children: [
+                            Image.asset("assets/icongo.png"),
+                            SizedBox(
+                              width: 25,
+                            ),
+                            Text("Ingresar con Google",
+                                style: TextStyle(
+                                    color: Colors.blue[400],
+                                    fontWeight: FontWeight.w500)),
+                          ],
+                        ),
+                        onPressed: () {
+                          _loginGoogle();
+                          //ref.child(name).set("renxito 1");
+                        }))
               ],
             ),
           )
